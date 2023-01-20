@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Sofia+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>BitPictures</title>
+  </head>
+
+  <body>
+    <header id="header">
+      <h1 class="title">BitPictures</h1>
+    </header>
+
+    <div id="slider">
+      <div id="image-container">
+        <img
+          id="current-image"
+          src="./slider-pictures/zdjecie1.jpg"
+          alt="obrazek"
+        />
+      </div>
+      <div id="arrow-buttons">
+        <button class="ladnybutton" id="prev-button" onclick="prevImage()">
+          <
+        </button>
+        <button class="ladnybutton" id="next-button" onclick="nextImage()">
+          >
+        </button>
+      </div>
+    </div>
+
+    <div id="modal-image">
+      <img id="modal-image-img" />
+    </div>
+
+    <div id="gallery-container">
+      <h1 class="section-title">Galeria</h1>
+    </div>
+
+    <div class="reszta">
+      <h1 class="section-title">Strona w trakcie rozwoju</h1>
+    </div>
+
+    <footer id="footer">
+      <p>Autorem fotografii jest Kajetan Battek</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

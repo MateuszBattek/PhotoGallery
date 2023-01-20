@@ -1,0 +1,215 @@
+body {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* header */
+
+#header {
+  background-color: black;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Kanit", sans-serif;
+  color: white;
+}
+
+/* slider */
+
+#slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-container {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  width: 25%;
+}
+
+#image-container img {
+  justify-content: center;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: 90%;
+}
+
+#arrow-buttons {
+  text-align: center;
+  margin: 20px;
+  width: 300px;
+}
+
+/* galeria */
+
+.section-title {
+  font-family: "Kanit", sans-serif;
+  color: black;
+  padding: 20px;
+  border-bottom: solid 3px black;
+  border-top: solid 3px black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#gallery-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.gallery-row {
+  width: 1020px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.gallery-image {
+  max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  /* flex: 1; */
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/* resszta */
+
+.reszta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#footer {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer p {
+  font-family: "Sofia Sans", sans-serif;
+  color: white;
+}
+
+/* ladnybutton */
+
+.ladnybutton:hover {
+  background: #f6f9fe;
+  color: #326647;
+}
+
+.ladnybutton:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.ladnybutton:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.ladnybutton:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.ladnybutton:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+
+.ladnybutton:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.ladnybutton:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+
+.ladnybutton:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.ladnybutton {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-size: 200%;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 2;
+  width: 30%;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.ladnybutton:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+/* koniec ladnybutton */
+
+#modal-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  display: none;
+}
+
+#modal-image img {
+  max-height: 80%;
+  margin: 100px auto;
+  display: flex;
+  border-radius: 10px;
+  border: solid black 5px;
+}
