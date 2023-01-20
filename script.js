@@ -1,5 +1,7 @@
 const modalImage = document.getElementById("modal-image");
 const modalImageImg = document.getElementById("modal-image-img");
+const galleryContainer = document.getElementById("gallery-container");
+const currentImages = document.getElementsByClassName("current-image");
 
 const displayImage = (src) => {
     modalImage.style.display = "block";
@@ -12,7 +14,7 @@ modalImage.addEventListener('click', function (e) {
     }
 });
 
-let galleryContainer = document.getElementById("gallery-container");
+
 for (let i = 0; i < 2; i++) {
     let row = document.createElement("div");
     row.classList.add("gallery-row");
@@ -35,18 +37,23 @@ let images = [];
 for (let i = 1; i <= 5; i++) {
     images.push("./slider-pictures/zdjecie" + i + ".jpg");
 }
-let currentIndex = 0;
+let currentImagesIndexes = [0, 1, 2];
+
 function prevImage() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = images.length - 1;
+    currentImagesIndexes = currentImagesIndexes.map(index =>
+        index > 0 ? index - 1 : 4
+    );
+
+    for (let i = 0; i < currentImagesIndexes.length; i++) {
+        currentImages[i].src = images[currentImagesIndexes[i]];
     }
-    document.getElementById("current-image").src = images[currentIndex];
 }
 function nextImage() {
-    currentIndex++;
-    if (currentIndex >= images.length) {
-        currentIndex = 0;
+    currentImagesIndexes = currentImagesIndexes.map(index =>
+        index < 4 ? index + 1 : 0
+    );
+
+    for (let i = 0; i < currentImagesIndexes.length; i++) {
+        currentImages[i].src = images[currentImagesIndexes[i]];
     }
-    document.getElementById("current-image").src = images[currentIndex];
 }

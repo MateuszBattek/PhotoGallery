@@ -1,7 +1,6 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,17 +16,35 @@
     </header>
 
     <div id="slider">
-      <div id="image-container">
-        <img
-          id="current-image"
-          src="./slider-pictures/zdjecie1.jpg"
-          alt="obrazek"
-        />
-      </div>
-      <div id="arrow-buttons">
+      <div class="arrow-button">
         <button class="ladnybutton" id="prev-button" onclick="prevImage()">
           <
         </button>
+      </div>
+      <div id="slider-images-section">
+        <div class="image-container">
+          <img
+            class="current-image"
+            src="./slider-pictures/zdjecie1.jpg"
+            alt="obrazek"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            class="current-image"
+            src="./slider-pictures/zdjecie2.jpg"
+            alt="obrazek"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            class="current-image"
+            src="./slider-pictures/zdjecie3.jpg"
+            alt="obrazek"
+          />
+        </div>
+      </div>
+      <div class="arrow-button">
         <button class="ladnybutton" id="next-button" onclick="nextImage()">
           >
         </button>

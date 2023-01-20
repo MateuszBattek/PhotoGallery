@@ -27,27 +27,33 @@ body {
 #slider {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-#image-container {
+#slider-images-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container {
+  flex: 1;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 10px;
+  margin: 20px;
   width: 25%;
 }
 
-#image-container img {
+.image-container img {
   justify-content: center;
   border: solid black 5px;
   border-radius: 10px;
   width: 90%;
 }
 
-#arrow-buttons {
+.arrow-button {
   text-align: center;
   margin: 20px;
   width: 300px;
@@ -242,6 +248,7 @@ body {
 
 #modal-image img {
   max-height: 80%;
+  max-width: 90%;
   margin: 100px auto;
   display: flex;
   border-radius: 10px;
