@@ -97,7 +97,7 @@ body {
 
 /* resszta */
 
-.reszta {
+#reszta {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -195,6 +195,40 @@ body {
 }
 
 /* koniec ladnybutton */
+
+.profile {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto 20px auto;
+}
+
+.profile-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image img {
+  box-shadow: -50px -50px 0 -40px black, 50px 50px 0 -40px black;
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 150px;
+}
+
+.profile-description {
+  width: 100%;
+  flex: 1;
+  font-family: "Kanit", sans-serif, monospace;
+}
+
+.profile-description h2 {
+  text-align: center;
+}
+
+/* modal */
 
 #modal-image {
   width: 100%;
