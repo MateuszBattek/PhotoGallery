@@ -95,11 +95,10 @@ body {
 }
 
 .gallery-image {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 220px;
+  max-height: 220px;
   width: auto;
   height: auto;
-  /* flex: 1; */
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
