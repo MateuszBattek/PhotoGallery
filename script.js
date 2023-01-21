@@ -14,18 +14,41 @@ modalImage.addEventListener('click', function (e) {
     }
 });
 
+// let random_photos_numbers = [];
+// for (let i = 0; i < 8; i++) {
+//     let random_photo = Math.floor(Math.random() * 31 + 1);
+//     let photo_not_included = false;
+//     do {
+//         if (!random_photos_numbers.includes(random_photo))
+//             random_photos_numbers.push(random_photo);
+//         else photo_not_included = true;
+//     } while (photo_not_included)
+
+// }
+
 
 for (let i = 0; i < 2; i++) {
     let row = document.createElement("div");
     row.classList.add("gallery-row");
 
+    // for (let j = 4 * i; j < 4 * i + 4; j++) {
+    //     let img = document.createElement("img");
+    //     img.classList.add("gallery-image");
+    //     img.src = "./min-pictures/" + random_photos_numbers[j] + ".jpg";
+    //     img.alt = "Zdjęcie " + random_photos_numbers[j];
+
+    //     img.onclick = () => displayImage("./gallery-pictures/" + random_photos_numbers[j] + ".jpg");
+
+    //     row.appendChild(img);
+    // }
+
     for (let j = i * 6 + 1; j <= (i + 1) * 6; j++) {
         let img = document.createElement("img");
         img.classList.add("gallery-image");
-        img.src = "./gallery-pictures/gal" + j + "-min.jpg";
+        img.src = "./min-pictures/" + j + ".jpg";
         img.alt = "Zdjęcie " + j;
 
-        img.onclick = () => displayImage("./gallery-pictures/gal" + j + "-min.jpg");
+        img.onclick = () => displayImage("./gallery-pictures/" + j + ".jpg");
 
         row.appendChild(img);
     }
@@ -56,4 +79,33 @@ function nextImage() {
     for (let i = 0; i < currentImagesIndexes.length; i++) {
         currentImages[i].src = images[currentImagesIndexes[i]];
     }
+}
+
+let clicked = 0;
+
+function showMenu() {
+
+    const showMenu = document.getElementById('show-menu');
+    const menu = document.getElementById('menu');
+
+    if (clicked === 0) {
+
+        showMenu.className = 'show-menu clicked';
+
+        menu.style.left = 0;
+
+        clicked = 1;
+
+    }
+
+    else {
+
+        showMenu.className = 'show-menu';
+
+        menu.style.left = '-250px';
+
+        clicked = 0;
+
+    }
+
 }

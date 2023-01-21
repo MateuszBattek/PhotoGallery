@@ -13,10 +13,34 @@
   <body>
     <header id="header">
       <h1 class="title">BitPictures</h1>
+      <div id="menu" class="menu">
+        <button
+          type="button"
+          id="show-menu"
+          class="show-menu"
+          onclick="showMenu();"
+        >
+          <i class="menu-bar menu-bar-1"></i>
+          <i class="menu-bar menu-bar-2"></i>
+          <i class="menu-bar menu-bar-3"></i>
+        </button>
+        <div>
+          <h3>Menu</h3>
+          <ul>
+            <li><a href="#header">Fotografie dnia</a></li>
+            <li><a href="#gallery-container">Galeria</a></li>
+            <li><a href="#profile">Kreatorzy</a></li>
+          </ul>
+        </div>
+
+        <p class="kontakt">Kontakt:</p>
+        <p class="mail">Mail: kajetan.bat@gmail.com</p>
+        <p class="signal">Signal:</p>
+      </div>
     </header>
 
     <div id="slider">
-      <div class="arrow-button">
+      <div class="arrow-button1">
         <button class="ladnybutton" id="prev-button" onclick="prevImage()">
           <
         </button>
@@ -44,7 +68,7 @@
           />
         </div>
       </div>
-      <div class="arrow-button">
+      <div class="arrow-button2">
         <button class="ladnybutton" id="next-button" onclick="nextImage()">
           >
         </button>
@@ -93,10 +117,6 @@
           </p>
         </div>
       </div>
-    </div>
-
-    <div id="reszta">
-      <h1 class="section-title">Strona w trakcie rozwoju</h1>
     </div>
 
     <footer id="footer">
