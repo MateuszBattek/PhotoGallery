@@ -302,10 +302,6 @@ button {
 }
 
 .menu-bar {
-  -ms-transform: -ms-transform 0.4s ease-in-out;
-  -moz-transform: -moz-transform 0.4s ease-in-out;
-  -o-transform: -o-transform 0.4s ease-in-out;
-  -webkit-transform: -webkit-transform 0.4s ease-in-out;
   transition: transform 0.4s ease-in-out;
   display: block;
   background-color: #ffffff;
