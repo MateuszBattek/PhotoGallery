@@ -14,41 +14,25 @@ modalImage.addEventListener('click', function (e) {
     }
 });
 
-// let random_photos_numbers = [];
-// for (let i = 0; i < 8; i++) {
-//     let random_photo = Math.floor(Math.random() * 31 + 1);
-//     let photo_not_included = false;
-//     do {
-//         if (!random_photos_numbers.includes(random_photo))
-//             random_photos_numbers.push(random_photo);
-//         else photo_not_included = true;
-//     } while (photo_not_included)
-
-// }
+let random_photos = [];
+while (random_photos.length < 8) {
+    let random_number = Math.floor(Math.random() * 31) + 1;
+    if (!random_photos.includes(random_number))
+        random_photos.push(random_number);
+}
 
 
 for (let i = 0; i < 2; i++) {
     let row = document.createElement("div");
     row.classList.add("gallery-row");
 
-    // for (let j = 4 * i; j < 4 * i + 4; j++) {
-    //     let img = document.createElement("img");
-    //     img.classList.add("gallery-image");
-    //     img.src = "./min-pictures/" + random_photos_numbers[j] + ".jpg";
-    //     img.alt = "Zdjęcie " + random_photos_numbers[j];
-
-    //     img.onclick = () => displayImage("./gallery-pictures/" + random_photos_numbers[j] + ".jpg");
-
-    //     row.appendChild(img);
-    // }
-
-    for (let j = i * 6 + 1; j <= (i + 1) * 6; j++) {
+    for (let j = 4 * i; j < 4 * i + 4; j++) {
         let img = document.createElement("img");
         img.classList.add("gallery-image");
-        img.src = "./min-pictures/" + j + ".jpg";
-        img.alt = "Zdjęcie " + j;
+        img.src = "./min-pictures/" + random_photos[j] + ".jpg";
+        img.alt = "Zdjęcie " + random_photos[j];
 
-        img.onclick = () => displayImage("./gallery-pictures/" + j + ".jpg");
+        img.onclick = () => displayImage("./gallery-pictures/" + random_photos[j] + ".jpg");
 
         row.appendChild(img);
     }
