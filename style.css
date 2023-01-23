@@ -4,6 +4,7 @@ body {
   margin: 0;
   justify-content: center;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* header */
@@ -122,6 +123,7 @@ body {
   background-color: black;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 
 #footer p {
@@ -270,7 +272,7 @@ body {
   position: fixed;
   top: 0;
   left: -250px;
-  background-color: #326647;
+  background-color: black;
   width: 250px;
   height: 100%;
 }
@@ -294,7 +296,7 @@ button {
   top: 0;
   right: -32px;
   box-shadow: none;
-  background-color: #326647;
+  background-color: black;
   width: 32px;
   height: 70px;
   cursor: pointer;
@@ -364,7 +366,7 @@ ul {
   color: white;
   font-family: "Kanit", sans-serif;
   position: absolute;
-  bottom: 7%;
+  bottom: 10%;
   margin-left: 10%;
   font-size: 110%;
 }
@@ -372,7 +374,7 @@ ul {
   color: white;
   font-family: "Kanit", sans-serif;
   position: absolute;
-  bottom: 4%;
+  bottom: 7%;
   margin-left: 10%;
 }
 .signal {

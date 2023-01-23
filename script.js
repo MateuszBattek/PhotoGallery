@@ -16,7 +16,7 @@ modalImage.addEventListener('click', function (e) {
 
 let random_photos = [];
 while (random_photos.length < 8) {
-    let random_number = Math.floor(Math.random() * 31) + 1;
+    let random_number = Math.floor(Math.random() * 30) + 1;
     if (!random_photos.includes(random_number))
         random_photos.push(random_number);
 }
