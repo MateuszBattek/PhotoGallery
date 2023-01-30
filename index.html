@@ -12,67 +12,72 @@
   </head>
 
   <body>
-    <header id="header">
-      <h1 class="title">BitPictures</h1>
-      <div id="menu" class="menu">
-        <button
-          type="button"
-          id="show-menu"
-          class="show-menu"
-          onclick="showMenu();"
-        >
-          <i class="menu-bar menu-bar-1"></i>
-          <i class="menu-bar menu-bar-2"></i>
-          <i class="menu-bar menu-bar-3"></i>
-        </button>
-        <div>
-          <h3>Menu</h3>
-          <ul>
-            <li><a href="#header">Fotografie dnia</a></li>
-            <li><a href="#gallery-container">Galeria</a></li>
-            <li><a href="#profile">Twórcy</a></li>
-          </ul>
-        </div>
-
-        <p class="kontakt">Kontakt:</p>
-        <p class="mail">Mail: kajetan.bat@gmail.com</p>
-        <p class="signal">Discord: AntycznyAnanas #8043</p>
-      </div>
-    </header>
-
-    <div id="slider">
-      <div class="arrow-button1">
-        <button class="ladnybutton" id="prev-button" onclick="prevImage()">
-          <
-        </button>
-      </div>
-      <div id="slider-images-section">
-        <div class="image-container">
-          <img
-            class="current-image"
-            src="./slider-pictures/zdjecie1.jpg"
-            alt="obrazek"
-          />
-        </div>
-        <div class="image-container">
-          <img
-            class="current-image"
-            src="./slider-pictures/zdjecie2.jpg"
-            alt="obrazek"
-          />
-        </div>
-        <div class="image-container">
-          <img
-            class="current-image"
-            src="./slider-pictures/zdjecie3.jpg"
-            alt="obrazek"
-          />
-        </div>
-      </div>
-      <div class="arrow-button2">
-        <button class="ladnybutton" id="next-button" onclick="nextImage()">
+    <div id="main-view">
+      <header id="header">
+        <h1 class="title">BitPictures</h1>
+        <div id="menu" class="menu">
+          <button
+            type="button"
+            id="show-menu"
+            class="show-menu"
+            onclick="showMenu();"
           >
-        </button>
+            <i class="menu-bar menu-bar-1"></i>
+            <i class="menu-bar menu-bar-2"></i>
+            <i class="menu-bar menu-bar-3"></i>
+          </button>
+          <div>
+            <h3>Menu</h3>
+            <ul>
+              <li><a href="#header">Fotografie dnia</a></li>
+              <li><a href="#gallery-container">Galeria</a></li>
+              <li><a href="#profile">Twórcy</a></li>
+            </ul>
+          </div>
+
+          <p class="kontakt">Kontakt:</p>
+          <p class="mail">Mail: kajetan.bat@gmail.com</p>
+          <p class="signal">Discord: AntycznyAnanas #8043</p>
+        </div>
+      </header>
+
+      <div id="slider">
+        <div>
+          <button class="arrow-button" id="prev-button" onclick="prevImage()">
+            <b><</b>
+          </button>
+        </div>
+
+        <div id="slider-images-section">
+          <div class="image-container">
+            <img
+              class="current-image"
+              style="width: 65%; filter: blur(2px)"
+              src="./slider-pictures/zdjecie1.jpg"
+              alt="obrazek"
+            />
+          </div>
+          <div class="image-container">
+            <img
+              class="current-image"
+              src="./slider-pictures/zdjecie2.jpg"
+              alt="obrazek"
+            />
+          </div>
+          <div class="image-container">
+            <img
+              class="current-image"
+              style="width: 65%; filter: blur(2px)"
+              src="./slider-pictures/zdjecie3.jpg"
+              alt="obrazek"
+            />
+          </div>
+        </div>
+        <div>
+          <button class="arrow-button" id="next-button" onclick="nextImage()">
+            <b>></b>
+          </button>
+        </div>
       </div>
     </div>
 
