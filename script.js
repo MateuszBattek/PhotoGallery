@@ -14,31 +14,31 @@ modalImage.addEventListener('click', function (e) {
     }
 });
 
-let random_photos = [];
-while (random_photos.length < 8) {
-    let random_number = Math.floor(Math.random() * 30) + 1;
-    if (!random_photos.includes(random_number))
-        random_photos.push(random_number);
-}
+// let random_photos = [];
+// while (random_photos.length < 8) {
+//     let random_number = Math.floor(Math.random() * 30) + 1;
+//     if (!random_photos.includes(random_number))
+//         random_photos.push(random_number);
+// }
 
 
-for (let i = 0; i < 2; i++) {
-    let row = document.createElement("div");
-    row.classList.add("gallery-row");
+// for (let i = 0; i < 2; i++) {
+//     let row = document.createElement("div");
+//     row.classList.add("gallery-row");
 
-    for (let j = 4 * i; j < 4 * i + 4; j++) {
-        let img = document.createElement("img");
-        img.classList.add("gallery-image");
-        img.src = "./min-pictures/" + random_photos[j] + ".jpg";
-        img.alt = "Zdjęcie " + random_photos[j];
+//     for (let j = 4 * i; j < 4 * i + 4; j++) {
+//         let img = document.createElement("img");
+//         img.classList.add("gallery-image");
+//         img.src = "./min-pictures/" + random_photos[j] + ".jpg";
+//         img.alt = "Zdjęcie " + random_photos[j];
 
-        img.onclick = () => displayImage("./gallery-pictures/" + random_photos[j] + ".jpg");
+//         img.onclick = () => displayImage("./gallery-pictures/" + random_photos[j] + ".jpg");
 
-        row.appendChild(img);
-    }
+//         row.appendChild(img);
+//     }
 
-    galleryContainer.appendChild(row);
-}
+//     galleryContainer.appendChild(row);
+// }
 
 let images = [];
 for (let i = 1; i <= 5; i++) {
