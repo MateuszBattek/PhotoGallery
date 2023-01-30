@@ -1,6 +1,5 @@
 body {
   display: flex;
-  width: 100%;
   margin: 0;
   justify-content: center;
   flex-direction: column;
@@ -10,7 +9,6 @@ body {
 /* header */
 
 #main-view {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -117,16 +115,6 @@ body {
   object-fit: cover;
 }
 
-/* resszta */
-
-#reszta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 #footer {
   display: flex;
   height: 30px;
@@ -198,6 +186,7 @@ body {
   border: solid black 5px;
 }
 
+/*menu*/
 .menu {
   -ms-transition: left 0.3s, box-shadow ease 0.3s;
   -moz-transition: left 0.3s, box-shadow ease 0.3s;
@@ -213,11 +202,7 @@ body {
   height: 100%;
 }
 
-button {
-  margin: 0;
-  border: 0;
-  padding: 0;
-}
+/* menu */
 
 .show-menu {
   -ms-transition: -ms-transform 0.5s ease-in-out;
@@ -229,13 +214,14 @@ button {
   overflow: hidden;
   z-index: 9999;
   position: absolute;
-  top: 0;
-  right: -32px;
+  top: 10;
+  right: -60px;
   box-shadow: none;
   background-color: black;
-  width: 32px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  border-radius: 100%;
 }
 
 .menu-bar {
@@ -265,7 +251,7 @@ button {
 }
 
 .clicked .menu-bar-2 {
-  transform: translate(26px);
+  transform: translate(100px);
 }
 
 .clicked .menu-bar-3 {
@@ -291,13 +277,24 @@ button {
 ul {
   list-style: none;
 }
-
+.current-image {
+  animation: fadeInOut 1s ease-in-out;
+}
+@keyframes fadeInOut {
+  15% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .menu ul li a {
   font-size: 100%;
   color: white;
   font-family: "Kanit", sans-serif;
   text-decoration: none;
 }
+
 .kontakt {
   color: white;
   font-family: "Kanit", sans-serif;
