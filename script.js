@@ -24,7 +24,7 @@ for (let gallery of galleries) {
         gallery_item.classList.add("gallery__item");
         gallery_item.classList.add("gallery__item--" + i);
 
-        gallery_item.onclick = () => displayImage("./gallery-pictures/" + i + "w.jpg");
+        gallery_item.onclick = () => displayImage("./gallery-pictures/" + photo_index + "w.jpg");
 
         let gallery_img = document.createElement("img");
         gallery_img.classList.add("gallery__img");
