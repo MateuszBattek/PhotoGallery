@@ -15,39 +15,39 @@
   </head>
 
   <body>
+    <div id="menu">
+      <button type="button" id="toggle-menu" onclick="toggleMenu();">
+        <i class="menu-bar menu-bar-1"></i>
+        <i class="menu-bar menu-bar-2"></i>
+        <i class="menu-bar menu-bar-3"></i>
+      </button>
+      <h3>Menu</h3>
+      <div id="menu-content">
+        <div id="menu-links">
+          <ul>
+            <li><a href="#header">Fotografie dnia</a></li>
+            <li><a href="#gallery-container">Galeria</a></li>
+            <li><a href="#profile">Twórcy</a></li>
+          </ul>
+        </div>
+
+        <div id="menu-contact">
+          <p>Kontakt:</p>
+          <p>Mail: kajetan.bat@gmail.com</p>
+          <p>Discord: AntycznyAnanas #8043</p>
+        </div>
+      </div>
+    </div>
+
     <div id="main-view">
       <header id="header">
         <h1 class="title">BitPictures</h1>
-        <div id="menu" class="menu">
-          <button
-            type="button"
-            id="show-menu"
-            class="show-menu"
-            onclick="showMenu();"
-          >
-            <i class="menu-bar menu-bar-1"></i>
-            <i class="menu-bar menu-bar-2"></i>
-            <i class="menu-bar menu-bar-3"></i>
-          </button>
-          <div>
-            <h3>Menu</h3>
-            <ul>
-              <li><a href="#header">Fotografie dnia</a></li>
-              <li><a href="#gallery-container">Galeria</a></li>
-              <li><a href="#profile">Twórcy</a></li>
-            </ul>
-          </div>
-
-          <p class="kontakt">Kontakt:</p>
-          <p class="mail">Mail: kajetan.bat@gmail.com</p>
-          <p class="signal">Discord: AntycznyAnanas #8043</p>
-        </div>
       </header>
 
       <div id="slider">
         <div>
           <button class="arrow-button" id="prev-button" onclick="prevImage()">
-            <b><</b>
+            <b>◄</b>
           </button>
         </div>
 
@@ -78,7 +78,7 @@
         </div>
         <div>
           <button class="arrow-button" id="next-button" onclick="nextImage()">
-            <b>></b>
+            <b>►</b>
           </button>
         </div>
       </div>

@@ -3,6 +3,8 @@ const modalImageImg = document.getElementById("modal-image-img");
 const galleryContainer = document.getElementById("gallery-container");
 const currentImages = document.getElementsByClassName("current-image");
 const galleries = document.getElementsByClassName("gallery");
+const toggleMenuButton = document.getElementById('toggle-menu');
+const menu = document.getElementById('menu');
 
 const displayImage = (src) => {
     modalImage.style.display = "block";
@@ -38,32 +40,6 @@ for (let gallery of galleries) {
     gallery_index++;
 }
 
-// let random_photos = [];
-// while (random_photos.length < 8) {
-//     let random_number = Math.floor(Math.random() * 30) + 1;
-//     if (!random_photos.includes(random_number))
-//         random_photos.push(random_number);
-// }
-
-
-// for (let i = 0; i < 2; i++) {
-//     let row = document.createElement("div");
-//     row.classList.add("gallery-row");
-
-//     for (let j = 4 * i; j < 4 * i + 4; j++) {
-//         let img = document.createElement("img");
-//         img.classList.add("gallery-image");
-//         img.src = "./min-pictures/" + random_photos[j] + ".jpg";
-//         img.alt = "Zdjęcie " + random_photos[j];
-
-//         img.onclick = () => displayImage("./gallery-pictures/" + random_photos[j] + ".jpg");
-
-//         row.appendChild(img);
-//     }
-
-//     galleryContainer.appendChild(row);
-// }
-
 let images = [];
 for (let i = 1; i <= 5; i++) {
     images.push("./slider-pictures/zdjecie" + i + ".jpg");
@@ -91,29 +67,23 @@ function nextImage() {
 
 let clicked = 0;
 
-function showMenu() {
-
-    const showMenu = document.getElementById('show-menu');
-    const menu = document.getElementById('menu');
-
+function toggleMenu() {
     if (clicked === 0) {
 
-        showMenu.className = 'show-menu clicked';
+        toggleMenuButton.classList.add("clicked");
+        toggleMenuButton.style.left = "260px";
 
         menu.style.left = 0;
 
         clicked = 1;
-
     }
-
     else {
 
-        showMenu.className = 'show-menu';
+        toggleMenuButton.classList.remove("clicked");
+        toggleMenuButton.style.left = "10px";
 
         menu.style.left = '-250px';
 
         clicked = 0;
-
     }
-
 }
