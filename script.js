@@ -7,7 +7,7 @@ const toggleMenuButton = document.getElementById('toggle-menu');
 const menu = document.getElementById('menu');
 
 const displayImage = (src) => {
-    modalImage.style.display = "block";
+    modalImage.style.display = "flex";
     modalImageImg.src = src;
 }
 
@@ -71,7 +71,6 @@ function toggleMenu() {
     if (clicked === 0) {
 
         toggleMenuButton.classList.add("clicked");
-        // toggleMenuButton.style.left = "260px";
 
         menu.style.left = 0;
 
@@ -80,7 +79,6 @@ function toggleMenu() {
     else {
 
         toggleMenuButton.classList.remove("clicked");
-        // toggleMenuButton.style.left = "10px";
 
         menu.style.left = '-250px';
 
