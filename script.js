@@ -32,6 +32,7 @@ for (let gallery of galleries) {
         gallery_img.classList.add("gallery__img");
         gallery_img.src = "min-pictures/" + photo_index + "w.jpg";
         gallery_img.alt = "Image " + photo_index;
+        gallery_img.draggable = false;
 
         gallery_item.appendChild(gallery_img);
         gallery.appendChild(gallery_item);
