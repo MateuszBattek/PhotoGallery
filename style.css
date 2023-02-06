@@ -281,7 +281,7 @@ body {
 /* menu */
 
 #menu {
-  transition: left 0.3s, box-shadow ease 0.3s;
+  transition: left 0.4s, box-shadow ease 0.4s;
   z-index: 9999;
   position: fixed;
   top: 0;
@@ -292,7 +292,7 @@ body {
 }
 
 #toggle-menu {
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.4s ease;
   display: block;
   overflow: hidden;
   z-index: 9999;
@@ -322,6 +322,7 @@ body {
 
 .clicked {
   box-shadow: 0 0 5px #181818;
+  transform: translate(250px, 0px);
 }
 
 .clicked .menu-bar-1 {
@@ -363,7 +364,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 92vh;
+  height: 100%;
 }
 
 #menu-links {

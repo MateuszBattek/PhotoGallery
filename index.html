@@ -16,22 +16,24 @@
 
   <body>
     <div id="menu">
-      <button type="button" id="toggle-menu" onclick="toggleMenu();">
-        <i class="menu-bar menu-bar-1"></i>
-        <i class="menu-bar menu-bar-2"></i>
-        <i class="menu-bar menu-bar-3"></i>
-      </button>
-      <h3>Menu</h3>
       <div id="menu-content">
-        <div id="menu-links">
-          <ul>
-            <li><a href="#header">Fotografie dnia</a></li>
-            <li><a href="#gallery-container">Galeria</a></li>
-            <li><a href="#profile">Twórcy</a></li>
-          </ul>
+        <button type="button" id="toggle-menu" onclick="toggleMenu();">
+          <i class="menu-bar menu-bar-1"></i>
+          <i class="menu-bar menu-bar-2"></i>
+          <i class="menu-bar menu-bar-3"></i>
+        </button>
+        <div class="menu-header">
+          <h3>Menu</h3>
+          <div id="menu-links">
+            <ul>
+              <li><a href="#main-menu">Fotografie dnia</a></li>
+              <li><a href="#gallery-container">Galeria</a></li>
+              <li><a href="#profile-container">Twórcy</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div id="menu-contact">
+        <div id="menu-contact" class="menu-footer">
           <p>Kontakt:</p>
           <p>Mail: kajetan.bat@gmail.com</p>
           <p>Discord: AntycznyAnanas #8043</p>
