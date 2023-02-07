@@ -51,22 +51,32 @@ body {
 #slider-images-section {
   display: flex;
   flex-direction: row;
-  width: 85%;
+  overflow: hidden;
+  width: 82%;
+  transition: transform 0.4s ease;
 }
 
 .image-container {
-  flex: 1;
+  min-width: 25vw;
+  max-width: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 1vw;
+  transition: transform 0.5s ease, width 0.5s ease;
 }
 
 .image-container img {
+  filter: blur(2px);
+  width: 65%;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 100%;
+}
+
+.center-image {
+  width: 100% !important;
+  filter: blur(0px) !important;
 }
 
 .arrow-button {
