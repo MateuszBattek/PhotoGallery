@@ -56,7 +56,7 @@ function prevImage() {
     sliderImages[currentCenterPhoto].classList.add("center-image");
     currentSliderTransform += 27;
     if (currentCenterPhoto === 4) {
-        currentSliderTransform = -27;
+        currentSliderTransform = -81;
     }
     for (let i = 0; i < imageContainers.length; i++) {
         imageContainers[i].style = `transform: translate(${currentSliderTransform}vw, 0);`;
