@@ -51,21 +51,25 @@ let currentSliderTransform = 0;
 let currentCenterPhoto = 1;
 
 function prevImage() {
-    if (currentCenterPhoto === 0) return;
     sliderImages[currentCenterPhoto].classList.remove("center-image");
     currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
     sliderImages[currentCenterPhoto].classList.add("center-image");
     currentSliderTransform += 27;
+    if (currentCenterPhoto === 4) {
+        currentSliderTransform = -27;
+    }
     for (let i = 0; i < imageContainers.length; i++) {
         imageContainers[i].style = `transform: translate(${currentSliderTransform}vw, 0);`;
     }
 }
 function nextImage() {
-    if (currentCenterPhoto === 4) return;
     sliderImages[currentCenterPhoto].classList.remove("center-image");
     currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
     sliderImages[currentCenterPhoto].classList.add("center-image");
     currentSliderTransform -= 27;
+    if (currentCenterPhoto === 0) {
+        currentSliderTransform = 27;
+    }
     for (let i = 0; i < imageContainers.length; i++) {
         imageContainers[i].style = `transform: translate(${currentSliderTransform}vw, 0);`;
     }
