@@ -236,6 +236,7 @@ body {
   width: 50%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin: 30px auto 30px auto;
 }
 
@@ -243,26 +244,38 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
-  margin-left: 5%;
   align-items: center;
 }
 
 .profile-image img {
   box-shadow: -50px -50px 0 -40px black, 50px 50px 0 -40px black;
-  width: auto;
-  max-width: 150px;
-  height: auto;
-  max-height: 150px;
+  width: 150px;
+  height: 150px;
+  max-width: 30vw;
+  max-height: 30vw;
 }
 
 .profile-description {
   width: 100%;
   flex: 1;
   font-family: "Kanit", sans-serif, monospace;
+  font-size: 1rem;
 }
 
 .profile-description h2 {
   text-align: left;
+}
+
+@media (max-width: 976px) {
+  .profile {
+    width: 95%;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .profile-description {
+    font-size: 0.75rem;
+  }
 }
 
 /* modal */
