@@ -63,16 +63,16 @@ sliderImagesSection.addEventListener('touchstart', e => {
 })
 
 sliderImagesSection.addEventListener('mousedown', e => {
-    touchstartX = event.clientX;
+    touchstartX = e.clientX;
 })
 
 sliderImagesSection.addEventListener('touchend', e => {
-    touchendX = e.changedTouches[0].screenX
+    touchendX = e.changedTouches[0].screenX;
     checkDirection()
 })
 
 sliderImagesSection.addEventListener('mouseup', e => {
-    touchendX = event.clientX;
+    touchendX = e.clientX;
     checkDirection();
 })
 
