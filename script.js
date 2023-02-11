@@ -24,17 +24,46 @@ for (let i = 1; i <= 5; i++) {
 
 const imageContainers = document.getElementsByClassName("image-container");
 
+let currentSliderTransform = 0;
+let currentCenterPhoto = 1;
 
-let touchstartX = 0
-let touchendX = 0
+let sliderImages = [];
+for (let imageContainer of imageContainers) {
+    sliderImages.push(imageContainer.children[0]);
+}
+
+let touchstartX = 0;
+let touchendX = 0;
 
 function checkDirection() {
-    if (touchendX < touchstartX) alert('swiped left!')
-    if (touchendX > touchstartX) alert('swiped right!')
+    let sliderChange = Math.floor((touchendX - touchstartX) / window.innerWidth * 100);
+    if (Math.abs(sliderChange) >= 27) {
+        sliderImages[currentCenterPhoto].classList.remove("center-image");
+        if (sliderChange > 0)
+            currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
+        else
+            currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
+
+        sliderImages[currentCenterPhoto].classList.add("center-image");
+
+        sliderChange = sliderChange > 0 ? 27 : -27;
+        currentSliderTransform += sliderChange;
+        if (currentCenterPhoto === 0)
+            currentSliderTransform = 27;
+        else if (currentCenterPhoto === 4)
+            currentSliderTransform = -81;
+    }
+    for (let container of imageContainers) {
+        container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
+    }
 }
 
 sliderImagesSection.addEventListener('touchstart', e => {
     touchstartX = e.changedTouches[0].screenX
+})
+
+sliderImagesSection.addEventListener('mousedown', e => {
+    touchstartX = event.clientX;
 })
 
 sliderImagesSection.addEventListener('touchend', e => {
@@ -42,10 +71,12 @@ sliderImagesSection.addEventListener('touchend', e => {
     checkDirection()
 })
 
-let sliderImages = [];
-for (let imageContainer of imageContainers) {
-    sliderImages.push(imageContainer.children[0]);
-}
+sliderImagesSection.addEventListener('mouseup', e => {
+    touchendX = event.clientX;
+    checkDirection();
+})
+
+
 
 const displayImage = (src) => {
     modalImage.style.display = "flex";
@@ -82,8 +113,7 @@ for (let gallery of galleries) {
     gallery_index++;
 }
 
-let currentSliderTransform = 0;
-let currentCenterPhoto = 1;
+
 
 function prevImage() {
     sliderImages[currentCenterPhoto].classList.remove("center-image");
