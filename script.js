@@ -48,12 +48,12 @@ const switchImage = (side) => {
     if (currentCenterPhoto === 0) {
         currentSliderTransform = 27;
     }
-    else if {
-        currentSliderTransform = 81;
+    else if (currentCenterPhoto === 4) {
+        currentSliderTransform = -81;
     }
     for (let container of imageContainers) {
-            container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
-        }
+        container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
+    }
 }
 
 function handleSwipe() {
@@ -122,10 +122,10 @@ for (let gallery of galleries) {
 
 
 function prevImage() {
-    switchImage(-1);
+    switchImage(1);
 }
 function nextImage() {
-    switchImage(1);
+    switchImage(-1);
 }
 
 let clicked = 0;
