@@ -35,27 +35,33 @@ for (let imageContainer of imageContainers) {
 let touchstartX = 0;
 let touchendX = 0;
 
-function checkDirection() {
-    let sliderChange = Math.floor((touchendX - touchstartX) / window.innerWidth * 100);
-    if (Math.abs(sliderChange) >= 27) {
-        sliderImages[currentCenterPhoto].classList.remove("center-image");
-        if (sliderChange > 0)
-            currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
-        else
-            currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
+const switchImage = (side) => {
+    sliderImages[currentCenterPhoto].classList.remove("center-image");
+    if (side > 0)
+        currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
+    else
+        currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
+    sliderImages[currentCenterPhoto].classList.add("center-image");
 
-        sliderImages[currentCenterPhoto].classList.add("center-image");
+    currentSliderTransform += side * 27;
 
-        sliderChange = sliderChange > 0 ? 27 : -27;
-        currentSliderTransform += sliderChange;
-        if (currentCenterPhoto === 0)
-            currentSliderTransform = 27;
-        else if (currentCenterPhoto === 4)
-            currentSliderTransform = -81;
+    if (currentCenterPhoto === 0) {
+        currentSliderTransform = 27;
+    }
+    else if {
+        currentSliderTransform = 81;
     }
     for (let container of imageContainers) {
-        container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
-    }
+            container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
+        }
+}
+
+function handleSwipe() {
+    let sliderChange = Math.floor((touchendX - touchstartX) / window.innerWidth * 100);
+    if (Math.abs(sliderChange) < 27) return;
+    if (sliderChange > 0) switchImage(1);
+    else if (sliderChange < 0) switchImage(-1);
+
 }
 
 sliderImagesSection.addEventListener('touchstart', e => {
@@ -68,12 +74,12 @@ sliderImagesSection.addEventListener('mousedown', e => {
 
 sliderImagesSection.addEventListener('touchend', e => {
     touchendX = e.changedTouches[0].screenX;
-    checkDirection()
+    handleSwipe()
 })
 
 sliderImagesSection.addEventListener('mouseup', e => {
     touchendX = e.clientX;
-    checkDirection();
+    handleSwipe();
 })
 
 
@@ -116,28 +122,10 @@ for (let gallery of galleries) {
 
 
 function prevImage() {
-    sliderImages[currentCenterPhoto].classList.remove("center-image");
-    currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
-    sliderImages[currentCenterPhoto].classList.add("center-image");
-    currentSliderTransform += 27;
-    if (currentCenterPhoto === 4) {
-        currentSliderTransform = -81;
-    }
-    for (let i = 0; i < imageContainers.length; i++) {
-        imageContainers[i].style = `transform: translate(${currentSliderTransform}vw, 0);`;
-    }
+    switchImage(-1);
 }
 function nextImage() {
-    sliderImages[currentCenterPhoto].classList.remove("center-image");
-    currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
-    sliderImages[currentCenterPhoto].classList.add("center-image");
-    currentSliderTransform -= 27;
-    if (currentCenterPhoto === 0) {
-        currentSliderTransform = 27;
-    }
-    for (let i = 0; i < imageContainers.length; i++) {
-        imageContainers[i].style = `transform: translate(${currentSliderTransform}vw, 0);`;
-    }
+    switchImage(1);
 }
 
 let clicked = 0;
