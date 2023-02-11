@@ -1,11 +1,46 @@
 const modalImage = document.getElementById("modal-image");
 const modalImageImg = document.getElementById("modal-image-img");
 const galleryContainer = document.getElementById("gallery-container");
-const imageContainers = document.getElementsByClassName("image-container");
 const galleries = document.getElementsByClassName("gallery");
 const toggleMenuButton = document.getElementById('toggle-menu');
 const menu = document.getElementById('menu');
 const sliderImagesSection = document.getElementById("slider-images-section");
+
+for (let i = 1; i <= 5; i++) {
+    let imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+
+    let image = document.createElement("img");
+    image.src = "./slider-pictures/zdjecie" + i + ".jpg";
+    image.alt = "Obrazek " + i;
+    image.draggable = false;
+    if (i === 2) {
+        image.classList.add("center-image");
+    }
+
+    imageContainer.appendChild(image);
+    sliderImagesSection.appendChild(imageContainer);
+}
+
+const imageContainers = document.getElementsByClassName("image-container");
+
+
+let touchstartX = 0
+let touchendX = 0
+
+function checkDirection() {
+    if (touchendX < touchstartX) alert('swiped left!')
+    if (touchendX > touchstartX) alert('swiped right!')
+}
+
+sliderImagesSection.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX
+})
+
+sliderImagesSection.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX
+    checkDirection()
+})
 
 let sliderImages = [];
 for (let imageContainer of imageContainers) {

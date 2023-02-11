@@ -105,6 +105,12 @@ body {
   transform: translateY(-2px);
 }
 
+@media (max-width: 976px) {
+  .arrow-button {
+    display: none;
+  }
+}
+
 /* galeria */
 
 .section-title {
