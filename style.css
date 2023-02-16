@@ -65,6 +65,7 @@ body {
   overflow: hidden;
   width: 82%;
   transition: transform 0.4s ease;
+  cursor: grab;
 }
 
 .image-container {

@@ -34,14 +34,24 @@ for (let imageContainer of imageContainers) {
 
 let touchstartX = 0;
 let touchendX = 0;
+let is_moving = false;
+let termSliderTransform = 0;
 
-const switchImage = (side) => {
-    sliderImages[currentCenterPhoto].classList.remove("center-image");
+const setNewCenterImage = (side) => {
+    let index = currentCenterPhoto;
+    sliderImages[index].classList.remove("center-image");
+
     if (side > 0)
-        currentCenterPhoto = currentCenterPhoto <= 0 ? currentCenterPhoto = 4 : currentCenterPhoto - 1;
+        index = index <= 0 ? index = 4 : index - 1;
     else
-        currentCenterPhoto = currentCenterPhoto >= 4 ? currentCenterPhoto = 0 : currentCenterPhoto + 1;
-    sliderImages[currentCenterPhoto].classList.add("center-image");
+        index = index >= 4 ? index = 0 : index + 1;
+
+    sliderImages[index].classList.add("center-image");
+    currentCenterPhoto = index;
+}
+
+function switchImage(side) {
+    setNewCenterImage(side);
 
     currentSliderTransform += side * 27;
 
@@ -56,29 +66,78 @@ const switchImage = (side) => {
     }
 }
 
+const moveImage = (shift) => {
+    if (Math.abs(shift) >= 27) {
+        switchImage(shift > 0 ? 1 : -1);
+        touchstartX = touchendX;
+    }
+    if (shift >= 27) shift = 27;
+    else if (shift <= -27) shift = -27;
+
+    termSliderTransform = shift + currentSliderTransform;
+
+    if (termSliderTransform < -81) termSliderTransform = -94.5;
+    if (termSliderTransform > 27) termSliderTransform = 40.5;
+
+    for (let container of imageContainers) {
+        container.style = `transform: translate(${termSliderTransform}vw, 0);`;
+    }
+}
+
+function prevImage() {
+    switchImage(1);
+}
+
+function nextImage() {
+    switchImage(-1);
+}
+
 function handleSwipe() {
+    is_moving = false;
     let sliderChange = Math.floor((touchendX - touchstartX) / window.innerWidth * 100);
-    if (Math.abs(sliderChange) < 27) return;
+    if (Math.abs(sliderChange) < 5) return;
     if (sliderChange > 0) switchImage(1);
     else if (sliderChange < 0) switchImage(-1);
+}
 
+function handleMove() {
+    let sliderChange = Math.floor((touchendX - touchstartX) / window.innerWidth * 100);
+    moveImage(sliderChange);
 }
 
 sliderImagesSection.addEventListener('touchstart', e => {
     touchstartX = e.changedTouches[0].screenX
+    is_moving = true;
 })
 
 sliderImagesSection.addEventListener('mousedown', e => {
-    touchstartX = e.clientX;
+    sliderImagesSection.style.cursor = "grabbing";
+    touchstartX = e.screenX;
+    is_moving = true;
 })
 
-sliderImagesSection.addEventListener('touchend', e => {
+document.addEventListener("touchmove", e => {
+    if (!is_moving) return;
+    touchendX = e.changedTouches[0].screenX;
+    handleMove();
+})
+
+document.addEventListener("mousemove", e => {
+    if (!is_moving) return;
+    touchendX = e.screenX;
+    handleMove();
+})
+
+document.addEventListener('touchend', e => {
+    if (!is_moving) return;
     touchendX = e.changedTouches[0].screenX;
     handleSwipe()
 })
 
-sliderImagesSection.addEventListener('mouseup', e => {
-    touchendX = e.clientX;
+document.addEventListener('mouseup', e => {
+    sliderImagesSection.style.cursor = null;
+    if (!is_moving) return;
+    touchendX = e.screenX;
     handleSwipe();
 })
 
@@ -117,15 +176,6 @@ for (let gallery of galleries) {
     }
 
     gallery_index++;
-}
-
-
-
-function prevImage() {
-    switchImage(1);
-}
-function nextImage() {
-    switchImage(-1);
 }
 
 let clicked = 0;
