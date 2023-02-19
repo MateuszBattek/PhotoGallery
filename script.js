@@ -24,7 +24,7 @@ for (let i = 1; i <= 5; i++) {
 
 const imageContainers = document.getElementsByClassName("image-container");
 
-let currentSliderTransform = 0;
+let currentSliderTransform = window.innerWidth > 976 ? 0 : -27;
 let currentCenterPhoto = 1;
 
 let sliderImages = [];
@@ -51,15 +51,19 @@ const setNewCenterImage = (side) => {
 }
 
 function switchImage(side) {
+    let screenWidth = window.innerWidth;
+    let mobileBonus = window.innerWidth > 976 ? 0 : -27;
+    let transformShift = screenWidth > 976 ? 27 : 52;
+
     setNewCenterImage(side);
 
-    currentSliderTransform += side * 27;
+    currentSliderTransform += side * transformShift;
 
     if (currentCenterPhoto === 0) {
-        currentSliderTransform = 27;
+        currentSliderTransform = transformShift + mobileBonus;
     }
     else if (currentCenterPhoto === 4) {
-        currentSliderTransform = -81;
+        currentSliderTransform = -3 * transformShift + mobileBonus;
     }
     for (let container of imageContainers) {
         container.style = `transform: translate(${currentSliderTransform}vw, 0);`;
@@ -67,17 +71,21 @@ function switchImage(side) {
 }
 
 const moveImage = (shift) => {
-    if (Math.abs(shift) >= 27) {
+    let screenWidth = window.innerWidth;
+    let mobileBonus = window.innerWidth > 976 ? 0 : -27;
+    let transformShift = screenWidth > 976 ? 27 : 52;
+
+    if (Math.abs(shift) >= transformShift) {
         switchImage(shift > 0 ? 1 : -1);
         touchstartX = touchendX;
     }
-    if (shift >= 27) shift = 27;
-    else if (shift <= -27) shift = -27;
+    if (shift >= transformShift) shift = transformShift;
+    else if (shift <= -transformShift) shift = -1 * transformShift;
 
     termSliderTransform = shift + currentSliderTransform;
 
-    if (termSliderTransform < -81) termSliderTransform = -94.5;
-    if (termSliderTransform > 27) termSliderTransform = 40.5;
+    if (termSliderTransform < -3.5 * transformShift) termSliderTransform = -3.5 * transformShift;
+    if (termSliderTransform > 1.5 * transformShift) termSliderTransform = 1.5 * transformShift;
 
     for (let container of imageContainers) {
         container.style = `transform: translate(${termSliderTransform}vw, 0);`;
